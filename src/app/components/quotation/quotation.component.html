@@ -1,0 +1,67 @@
+<body>
+<section class="section">
+  <div class="box">
+    <form (ngSubmit)="getQuotation()">
+      <div class="field">
+        <label class="label">Cotizacion : </label>
+        <div class="control ">
+          <input class="input "
+                 type="text" placeholder="Name"
+                 [(ngModel)]="quotation.moneda"
+                 defaultValue=""
+                 name="listName"
+          />
+        </div>
+        <p class="help">This is a help text</p>
+      </div>
+      <div class="control">
+        <button class="button is-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div [hidden]="spinner">
+    <progress class="progress is-small is-primary" max="100">10%</progress>
+  </div>
+
+  <div class="box">
+    <ul class="list">
+      <li>
+        <div class="content">
+          <p>
+            <strong>Tipo de Moneda : </strong>
+            {{quotationResponse.moneda}}
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="content">
+          <p>
+            <strong>Compra : </strong>
+            {{quotationResponse.compra}}
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="content">
+          <p>
+            <strong>Venta : </strong>
+            {{quotationResponse.venta}}
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="content">
+          <p>
+            <strong>Fecha de cotizacion : </strong>
+            {{quotationResponse.fecha}}
+          </p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+</section>
+</body>
+
+
