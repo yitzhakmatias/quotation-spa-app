@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PurchaseService} from '../../services/purchase.service';
 
 @Component({
@@ -8,6 +8,7 @@ import {PurchaseService} from '../../services/purchase.service';
 })
 export class PurchaseListComponent implements OnInit {
 
+  @Input()
   purchaseList: any;
 
   constructor(private purchaseSrv: PurchaseService) {
@@ -16,10 +17,10 @@ export class PurchaseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.purchaseSrv.getPurchases().then((resp) => {
+   /* this.purchaseSrv.getPurchases().then((resp) => {
       console.log(resp);
-      this.purchaseList = resp;
-    });
+     // this.purchaseList = resp;
+    });*/
   }
 
 }

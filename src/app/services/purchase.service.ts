@@ -9,7 +9,7 @@ import axios from 'axios';
 export class PurchaseService {
   baseUrl = 'http://localhost:5000/api/purchase';
 
-  constructor(private http: HttpClient) {
+  constructor() {
 
   }
 

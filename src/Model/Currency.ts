@@ -1,9 +1,9 @@
 export class Currency {
-  public id;
+  public Id;
   public Name: string;
 
   constructor(id, Name) {
-    this.id = id;
+    this.Id = id;
     this.Name = Name;
   }
 }

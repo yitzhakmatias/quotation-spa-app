@@ -1,72 +1,31 @@
-<p class="title">Cotizacion</p>
 <section class="section">
   <div class="box">
-    <form (ngSubmit)="getQuotation()">
-      <div class="field">
-        <label class="label">Cotizacion : </label>
-        <div class="control ">
-          <input class="input "
-                 type="text" placeholder="Name"
-                 [(ngModel)]="quotation.currency"
-                 defaultValue=""
-                 name="listName"
-          />
+    <p class="title">Cotizacion</p>
+    <form [formGroup]="quotationForm" (ngSubmit)="getQuotation()">
+      <span class="select">
+        <select formControlName="currency" [ngClass]="{ 'input is-danger': submitted && f.currency.errors }">
+        <option value="">--Seleccionar Moneda--</option>
+       <option *ngFor="let i of currency" [value]="i.Id">{{i.Name}}</option>
+        </select>
+       <div *ngIf="submitted && f.currency.errors" class="help is-danger">
+            <div *ngIf="f.currency.errors.required">Moneda es requerida</div>
+       </div>
+    </span>
 
-        </div>
-        <p class="help">This is a help text</p>
-      </div>
-
-
-      <div class="control">
-        <button class="button is-primary">Submit</button>
-      </div>
-      <ul>
-        <li *ngFor="let item of dataList"> {{item.Name}}</li>
-      </ul>
+      <button class="button is-primary">Submit</button>
 
     </form>
+
   </div>
+  <br/>
+  <br/>
   <div [hidden]="spinner">
     <progress class="progress is-small is-primary" max="100">10%</progress>
   </div>
-
   <div class="box">
-    <ul class="list">
-      <li>
-        <div class="content">
-          <p>
-            <strong>Tipo de Moneda : </strong>
-            {{quotationResponse.moneda}}
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="content">
-          <p>
-            <strong>Compra : </strong>
-            {{quotationResponse.compra}}
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="content">
-          <p>
-            <strong>Venta : </strong>
-            {{quotationResponse.venta}}
-          </p>
-        </div>
-      </li>
-      <li>
-        <div class="content">
-          <p>
-            <strong>Fecha de cotizacion : </strong>
-            {{quotationResponse.fecha}}
-          </p>
-        </div>
-      </li>
-    </ul>
-
+    <app-quotationlist [quotation]="quotationResponse"></app-quotationlist>
   </div>
+
 
 </section>
 

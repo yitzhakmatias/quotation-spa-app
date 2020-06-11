@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import { PurchaseListComponent } from './components/purchase-list/purchase-list.component';
+import { QuotationlistComponent } from './components/quotationlist/quotationlist.component';
 
 
 
@@ -18,7 +19,8 @@ import { PurchaseListComponent } from './components/purchase-list/purchase-list.
     AppComponent,
     QuotationComponent,
     PurchaseComponent,
-    PurchaseListComponent
+    PurchaseListComponent,
+    QuotationlistComponent
   ],
   imports: [
     BrowserModule,

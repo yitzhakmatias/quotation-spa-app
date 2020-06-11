@@ -43,6 +43,9 @@
       </p>
     </div>
   </form>
-  <app-purchase-list></app-purchase-list>
+  <div [hidden]="spinner">
+    <progress class="progress is-small is-primary" max="100">10%</progress>
+  </div>
+  <app-purchase-list [purchaseList]="purchaseList"></app-purchase-list>
 </div>
 

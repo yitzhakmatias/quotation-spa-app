@@ -1,6 +1,7 @@
 export class Quotation {
 
   public currency: string;
+
   public buyPrice: string;
   public sellPrice: string;
   public date: string;

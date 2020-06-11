@@ -15,12 +15,13 @@ export class PurchaseComponent implements OnInit {
   purchaseData: Purchase;
 
   users: any;
-
+  purchaseList: any;
+  spinner: boolean;
 
   constructor(private formBuilder: FormBuilder, private  http: HttpClient, private purchaseSrv: PurchaseService) {
 
     this.getUserList();
-
+    this.spinner = true;
   }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class PurchaseComponent implements OnInit {
       currency: ['', Validators.required],
 
     });
+    this.getPurchaseList();
   }
 
   get f() {
@@ -76,12 +78,21 @@ export class PurchaseComponent implements OnInit {
       UserId: parseInt(this.userId.value)
     };
 
-    this.purchaseSrv.purchaseCurrency(purchase).subscribe(response => {
+    this.purchaseSrv.purchaseCurrency(purchase).then(response => {
       let resp = response;
-    }, error => {
-      console.log(error);
+      this.getPurchaseList();
+    }).catch(e => {
+      console.log(e);
     });
 
 
+  }
+
+  getPurchaseList(): void {
+    this.spinner = false;
+    this.purchaseSrv.getPurchases().then((resp) => {
+      this.spinner = true;
+      this.purchaseList = resp;
+    });
   }
 }
