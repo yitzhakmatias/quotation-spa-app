@@ -1,17 +1,17 @@
 export class Quotation {
 
-  public moneda: string;
-  public compra: string;
-  public venta: string;
-  public fecha: string;
+  public currency: string;
+  public buyPrice: string;
+  public sellPrice: string;
+  public date: string;
 
 
   constructor(moneda, compra, venta, fecha) {
 
-    this.moneda = moneda;
-    this.compra = compra;
-    this.venta = venta;
-    this.fecha = fecha;
+    this.currency = moneda;
+    this.buyPrice = compra;
+    this.sellPrice = venta;
+    this.date = fecha;
 
   }
 

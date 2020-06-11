@@ -1,4 +1,4 @@
-<body>
+<p class="title">Cotizacion</p>
 <section class="section">
   <div class="box">
     <form (ngSubmit)="getQuotation()">
@@ -7,16 +7,23 @@
         <div class="control ">
           <input class="input "
                  type="text" placeholder="Name"
-                 [(ngModel)]="quotation.moneda"
+                 [(ngModel)]="quotation.currency"
                  defaultValue=""
                  name="listName"
           />
+
         </div>
         <p class="help">This is a help text</p>
       </div>
+
+
       <div class="control">
         <button class="button is-primary">Submit</button>
       </div>
+      <ul>
+        <li *ngFor="let item of dataList"> {{item.Name}}</li>
+      </ul>
+
     </form>
   </div>
   <div [hidden]="spinner">
@@ -62,6 +69,6 @@
   </div>
 
 </section>
-</body>
+
 
 

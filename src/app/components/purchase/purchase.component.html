@@ -1,0 +1,48 @@
+<div class="tile is-child box">
+  <form [formGroup]="purchaseForm" (ngSubmit)="PurchaseCurrency()">
+    <div class="field">
+      <label class="label">Compra de moneda</label>
+    </div>
+    <div class="field has-addons">
+
+
+      <div class="control">
+        <div class="select">
+          <select formControlName="userId" [ngClass]="{ 'input is-danger': submitted && f.userId.errors }">
+            <option value="">--Seleccionar Usuario--</option>
+            <option *ngFor="let item of purchaseData.users" [value]="item.id">{{item.name}}</option>
+          </select>
+          <div *ngIf="submitted && f.userId.errors" class="help is-danger">
+            <div *ngIf="f.userId.errors.required">Usuario es requerido</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="control">
+    <span class="select">
+      <select formControlName="currency" [ngClass]="{ 'input is-danger': submitted && f.currency.errors }">
+        <option value="">--Seleccionar Moneda--</option>
+       <option *ngFor="let currency of purchaseData.currency" [value]="currency.id">{{currency.Name}}</option>
+      </select>
+       <div *ngIf="submitted && f.currency.errors" class="help is-danger">
+            <div *ngIf="f.currency.errors.required">Moneda es requerida</div>
+       </div>
+    </span>
+      </p>
+      <div class="control">
+
+        <input formControlName="amount" class="input" type="text" placeholder="Amount of money"
+        >
+        <div *ngIf="submitted && f.amount.errors" class="help is-danger">
+          <div *ngIf="f.amount.errors.required">Monto es requerido</div>
+        </div>
+      </div>
+
+      <p class="control">
+        <button class="button is-primary">Comprar</button>
+      </p>
+    </div>
+  </form>
+  <app-purchase-list></app-purchase-list>
+</div>
+

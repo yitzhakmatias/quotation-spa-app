@@ -1,1 +1,26 @@
-<app-quotation></app-quotation>
+<body>
+<section class="section">
+  <div class="tile is-ancestor">
+    <div class="tile is-2 is-vertical is-parent">
+      <div class="tile is-child box">
+        <aside class="menu">
+          <ul class="menu-list">
+            <li routerLinkActive="active"><a [routerLink]="['/Quotation']" >Tipo de Cambio</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/Purchases']" >Compra de Moneda</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <div class="tile is-child ">
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+</body>
+
