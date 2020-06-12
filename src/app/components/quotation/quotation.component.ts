@@ -53,7 +53,7 @@ export class QuotationComponent implements OnInit {
     const params = new HttpParams()
       .set('currency', currency)
     ;
-    this.http.get('http://localhost:5000/api/quotation/current', {params}).subscribe((response: QuotationObj) => {
+    this.http.get('http://localhost:5000/api/quotation/currency', {params}).subscribe((response: QuotationObj) => {
       this.spinner = true;
       this.quotationResponse = response;
 
