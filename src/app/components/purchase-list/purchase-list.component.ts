@@ -17,10 +17,7 @@ export class PurchaseListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   /* this.purchaseSrv.getPurchases().then((resp) => {
-      console.log(resp);
-     // this.purchaseList = resp;
-    });*/
+
   }
 
 }

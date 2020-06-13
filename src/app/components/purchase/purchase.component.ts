@@ -53,6 +53,7 @@ export class PurchaseComponent implements OnInit {
   getUserList() {
     this.http.get('http://localhost:5000/api/user/').subscribe(response => {
       this.users = response;
+
       this.purchaseData = Purchase.PurchaseInstance([{id: 1, Name: 'Dollar'}, {id: 2, Name: 'Real'}], 0, this.users);
 
     }, error => {
