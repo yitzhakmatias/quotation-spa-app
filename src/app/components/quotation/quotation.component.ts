@@ -1,16 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Quotation} from '../../../Model/Quotation';
 import {Currency} from '../../../Model/Currency';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {QuotationObj} from '../../../Model/QuotationObj';
+import {PurchaseService} from '../../services/purchase.service';
+import {CurrencyService} from '../../services/currency.service';
 
 @Component({
   selector: 'app-quotation',
   templateUrl: './quotation.component.html',
   styleUrls: ['./quotation.component.css']
 })
-export class QuotationComponent implements OnInit {
+export class QuotationComponent implements OnInit, OnChanges {
 
   quotationResponse: QuotationObj;
   quotation: Quotation;
@@ -22,18 +24,22 @@ export class QuotationComponent implements OnInit {
   quotationForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private  http: HttpClient) {
+  constructor(private currencyService: CurrencyService, private formBuilder: FormBuilder, private  http: HttpClient) {
 
 
     this.quotation = Quotation.QuotationInstance();
     this.currency = [{Id: 1, Name: 'Dollar'}, {Id: 2, Name: 'Real'}];
     this.spinner = true;
 
-    //  this.dataList = [{id: 1, Name: 'Dollar'}, {id: 2, Name: 'Real'}];// [new Currency(1, 'Dollar'), new Currency(2, 'Real')];
-    console.log(this.currency);//new Currency()[[{id: 1, Name: 'Dollar'}, {id: 2, Name: 'Real'} ];
+
+  }
+
+  ngOnChanges(): void {
+
   }
 
   ngOnInit(): void {
+
     this.quotationForm = this.formBuilder.group({
       currency: ['', Validators.required]
     });
