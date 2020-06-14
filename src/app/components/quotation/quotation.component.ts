@@ -28,6 +28,7 @@ export class QuotationComponent implements OnInit, OnChanges {
 
 
     this.quotation = Quotation.QuotationInstance();
+    this.quotationResponse = QuotationObj.QuotationObj();
     this.currency = [{Id: 1, Name: 'Dollar'}, {Id: 2, Name: 'Real'}];
     this.spinner = true;
 
