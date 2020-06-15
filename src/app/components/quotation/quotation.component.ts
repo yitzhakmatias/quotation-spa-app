@@ -4,8 +4,7 @@ import {Quotation} from '../../../Model/Quotation';
 import {Currency} from '../../../Model/Currency';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {QuotationObj} from '../../../Model/QuotationObj';
-import {PurchaseService} from '../../services/purchase.service';
-import {CurrencyService} from '../../services/currency.service';
+
 
 @Component({
   selector: 'app-quotation',
@@ -24,7 +23,7 @@ export class QuotationComponent implements OnInit, OnChanges {
   quotationForm: FormGroup;
   submitted = false;
 
-  constructor(private currencyService: CurrencyService, private formBuilder: FormBuilder, private  http: HttpClient) {
+  constructor( private formBuilder: FormBuilder, private  http: HttpClient) {
 
 
     this.quotation = Quotation.QuotationInstance();
